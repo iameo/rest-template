@@ -6,6 +6,8 @@ import pymongo
 import os
 from flask_jwt_extended import JWTManager
 
+from flask_cors import CORS
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -13,6 +15,7 @@ app = flask.Flask(__name__)
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or 'sloovi-sloovin'
 
+CORS(app)
 #JWT for assigning tokens for users
 jwt = JWTManager(app)
 
