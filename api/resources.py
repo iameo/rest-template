@@ -144,6 +144,6 @@ class HelloSloovi(Resource):
 api.add_resource(CheckAuth, '/check-auth')
 api.add_resource(Register, '/register') #endpoint 1
 api.add_resource(Login, '/login') #endpoint 2
-api.add_resource(Template, '/template/<template_id>')
-api.add_resource(CreateTemplate, '/template')
+api.add_resource(Template, '/template/<template_id>') #endpoint 3(a)
+api.add_resource(CreateTemplate, '/template') #endpoint 3(b)
 api.add_resource(HelloSloovi, '/')
