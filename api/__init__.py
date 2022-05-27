@@ -1,3 +1,4 @@
+from email import message
 import flask
 from flask_restful import Api
 
@@ -35,3 +36,11 @@ api = Api(app)
 
 
 from api import resources
+
+@jwt.expired_token_loader
+def my_expired_token_callback(jwt_header, jwt_payload):
+    return flask.jsonify(message="Token expired, even last week's milk taste better"), 401
+
+@jwt.unauthorized_loader
+def my_invalid_token_callback(expired_token):
+    return flask.jsonify(message="unauthorized! request token"), 401
