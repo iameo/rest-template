@@ -136,9 +136,14 @@ class CreateTemplate(Resource):
         return flask.jsonify(status=400, message="missing credentials")
 
 
+class HelloSloovi(Resource):
+    def get(self):
+        return flask.jsonify(message="sloovin....")
+
 
 api.add_resource(CheckAuth, '/check-auth')
 api.add_resource(Register, '/register') #endpoint 1
 api.add_resource(Login, '/login') #endpoint 2
 api.add_resource(Template, '/template/<template_id>')
 api.add_resource(CreateTemplate, '/template')
+api.add_resource(HelloSloovi, '/')
