@@ -81,7 +81,6 @@ class Template(Resource):
 
         '''fetch template if name exists and is owned by current user'''
         template = col.find_one({"_id": ObjectId(template_id), "owner":current_user})
-        print(template)
         if template:
             return flask.jsonify(message="template found", data=dumps(template), status=200)
         return flask.jsonify(message="template does not exist in your repository", status=404)
