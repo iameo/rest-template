@@ -19,7 +19,7 @@ TEST LIVE SERVER: [emma-sl-rest-template](https://emma-sl.herokuapp.com)
   required json: ```{
         "first_name": "xxxx",
         "last_name":"yyyy",
-        "email": "xxxx@xx.com,
+        "email": "xxxx@xx.com",
         "password": "*****",
     }```
 
