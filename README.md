@@ -11,6 +11,9 @@
 
 
 #### Routes
+
+TEST LIVE SERVER: [emma-sl-rest-template](https://emma-sl.herokuapp.com)
+
 * localhost:5000/register [POST method]
   
   required json: ```{
