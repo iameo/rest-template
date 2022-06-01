@@ -146,8 +146,11 @@ class CreateTemplate(Resource):
 
 class HelloSloovi(Resource):
     def get(self):
-        return flask.jsonify(message="sloovin....")
-
+        return flask.jsonify(
+            database="MongoDB",
+            web_framework="Flask",
+            Limited_Unauthorized_Access="Yes",
+            message="sloovin....")
 
 api.add_resource(CheckAuth, '/check-auth')
 api.add_resource(Register, '/register') #endpoint 1
