@@ -14,6 +14,9 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identi
 
 from bson.objectid import ObjectId
 
+# import re
+from email_validator import validate_email, EmailNotValidError
+
 '''All required resources in this module, a better design would to have each in a separate module, for readability'''
 
 
@@ -47,7 +50,7 @@ class Login(Resource):
             password_check = check_password_hash(user["password"], password)
             if password_check:
                 access_token = create_access_token(identity=email)
-                return flask.jsonify(access_token=access_token)
+                return flask.jsonify(access_token=access_token, message="plug in ypur access token for access")
             return flask.jsonify(message="incorrect password!")
         return flask.jsonify(message="user does not exist")
 
@@ -64,6 +67,11 @@ class Register(Resource):
         password = _json["password"]
         email = _json["email"]
 
+        try:
+            email = validate_email(email).email
+        except EmailNotValidError as e:
+            return flask.jsonify(message=str(e))
+            
         if first_name and last_name and password and email:
             if not col.find_one({"email":email}):
                 '''stored hashed value of password as password'''
