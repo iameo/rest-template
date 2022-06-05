@@ -149,7 +149,9 @@ class HelloSloovi(Resource):
         return flask.jsonify(
             database="MongoDB",
             web_framework="Flask",
-            Limited_Unauthorized_Access="Yes",
+            Limited_authorized_access="Yes",
+            app_type="Rest API",
+            documentation="https://github.com/iameo/rest-template/"
             message="sloovin....")
 
 api.add_resource(CheckAuth, '/check-auth')
